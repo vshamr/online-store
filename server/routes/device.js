@@ -1,9 +1,10 @@
-const Router = require('express');
-const router = new Router();
-const deviceController = require('../controllers/device');
+const Router = require('express')
+const router = new Router()
+const deviceController = require('../controllers/device')
+const checkRoleMiddleware = require('../middleware/check-role')
 
-router.post('/', deviceController.create);
-router.get('/', deviceController.getAll);
-router.get('/:id', deviceController.getOne);
+router.post('/', checkRoleMiddleware('ADMIN'), deviceController.create)
+router.get('/', deviceController.getAll)
+router.get('/:id', deviceController.getOne)
 
-module.exports = router;
+module.exports = router

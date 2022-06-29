@@ -1,7 +1,7 @@
-const Error = require('../error/index')
+const ApiError = require('../error/index')
 
-module.exports = function (err, req, res) {
-    if (err instanceof Error) {
+module.exports = function (err, req, res, next) {
+    if (err instanceof ApiError) {
         return res.status(err.status).json({message: err.message})
     }
     return res.status(500).json({message: 'Unexpected error'})
