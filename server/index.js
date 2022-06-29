@@ -8,7 +8,7 @@ const router = require('./routes/index')
 const errorHandler = require('./middleware/error-handling')
 const path = require('path')
 
-const PORT = 3000
+const PORT = 5000
 
 const app = express()
 app.use(cors())
